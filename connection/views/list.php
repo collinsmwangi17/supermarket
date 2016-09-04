@@ -42,9 +42,37 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Cake</td><td>3000</td><td>4000</td><td>1000</td><td></td>
-                </tr>
+                <?php
+                    require "../connection.php";
+
+                    $sql =  "select * from market";
+                    $res = $conn->query($sql);
+
+                    while ($row = mysqli_fetch_array($res)) {
+                        echo "<tr>";
+                        echo "<td>".$row['item']."</td>";
+                        echo "<td>".$row['chandaria']."</td>";
+                        echo "<td>".$row['nakumatt']."</td>";
+                        
+                        $dif = $row['chandaria'] - $row['nakumatt'];
+                        if($row['chandaria'] > $row['nakumatt']){
+                            $dif = ($row['chandaria'] / $row['nakumatt']) * 100;
+                            echo "<td> chandaria is cheaper by ".$dif."%</td>";
+                        }else{
+                            $dif = ($row['nakumatt'] / $row['chandaria']) * 100;
+                            echo "<td> nakumatt is cheaper by ".$dif."%</td>";
+                        }
+                    ?>
+                        <td>
+                            <form method="POST" action="../scripts/list_sctrips.php">
+                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                <input type="submit" value="Delete">
+                            </form>
+                        </td>
+                    <?php
+                        echo "</tr>";
+                    } 
+                ?>
             </tbody>
         </table>
     </div><!-- /.container -->

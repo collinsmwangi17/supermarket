@@ -6,11 +6,15 @@ $serverpass = "";
 $dbname = "market";
 
 //Create the database connection
-$conn = new mysqli($servername, $serveruser, $serverpass, $dbname);
+$conn = mysqli_connect($servername, $serveruser, $serverpass, $dbname);
 
 // Check connection
-if ($conn->connect_error){
+if (!$conn){
+
 die("Connection Failed: ". $conn->connect_error);
+
+}
+else {//echo "Connected Successfully to ". $dbname;
 }
 // echo "Connected Successfully to ". $dbname;
 ?>

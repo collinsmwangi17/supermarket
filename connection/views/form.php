@@ -36,22 +36,22 @@
     <br><br><br><br>
     <div class="container">
 
-        <form action="">
+        <form action="../scripts/form_scripts.php" method="POST">
             <div class="form-group">
                 <label for="">Item Name</label>
-                <input type="text" class="form-control" id="" placeholder="Item Name">
+                <input type="text" class="form-control" id="" placeholder="Item Name" name="item_name">
             </div>
             <div class="form-group">
                 <label for="">Price A</label>
-                <input type="text" class="form-control" id="" placeholder="Price A">
+                <input type="text" class="form-control" id="" placeholder="Price A" name="priceA">
             </div>
             <div class="form-group">
                 <label for="">Price B</label>
-                <input type="text" class="form-control" id="" placeholder="Price B">
+                <input type="text" class="form-control" id="" placeholder="Price B" name="priceB">
             </div>
             <div class="form-group">
                 <label for="">Price Difference</label>  
-                <input type="text" class="form-control" id="" placeholder="Price Difference">
+                <input type="text" class="form-control" id="" placeholder="Price Difference" name="price_difference">
             </div>
             <div class="form-group">
                 <input type="submit" value="Submit">
